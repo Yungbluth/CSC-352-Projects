@@ -1,0 +1,30 @@
+passphrase for yungbluth_1: AIrpRkPcUKvoPNimjQlDQURX
+
+Attempts to arrive at solution:
+ repz cmpsb %es:(%edi),%ds:(%esi)  x/s $esi
+I started by making multiple breakpoints, one at main, one at a compare between %edi and %esi, and futher breakpoints at each function call.
+After making those breakpoints I checked each of the variables I could find at each point.
+Doing this, I found out that %edi changes to my input, therefore I was looking for something to compare to edi.
+I found this at one of my breakpoints, with the other variable being %esi. At the command  repz cmpsb %es:(%edi),%ds:(%esi). A simple x/s $esi gave me the passphrase.
+
+
+passphrase for yungbluth_2: abcdefghihgfedcba
+What also works: Any palindrome greater than 11 characters works
+
+Attempts to arrive at solution:
+I started similarly to what I tried in yungbluth_1. This did not work great as I could not discover any passphrases that were compared against.
+Therefore I had to try something different. I first attempted to search through each function and see what they did. Through a little work I discovered that function l checked the length of the string.
+Through much more work I finally figured out that function p checks if the string is the same forwards and backwords, aka a palindrome. Therefore I was able to go back to the compare statement and learn that the solution had to both have a length greater than 11 and be a palindrome.
+
+
+passphrase for yungbluth_3: [[[[[[[[z
+What also works: 8 characters in the set [,],(,),{,} as well as one or two characters outside of the set
+
+Attempts to arrive at solution:
+I initially had trouble finding my way to get a disas from gdb since there was no clear main function.
+I solved this by stopping the program when it asked for input and using a disas there, allowing me to see into a function that I could step out of into a more important function.
+I traveled through until I found what looked like a compare function, checking for the number 8. I traced the variable that was required to be 8 back to a function call.
+I went into this function, and I saw multiple compare statements, along with a variable that was being incremented by 1. I also found that this variable being incremented by 1 was the return variable.
+Therefore I knew this variable had to become 8 in order to pass from what I found earlier. I then found that characters that align with the hex numbers through an ascii table.
+The hex characters were 5b, 28, 29, 7b, 7d, 5b which are [, (, ), {, }, ] respectively.
+In order to hit that number of 8, I need my input to include 8 of those characters. However the input asks for 9 or 10 characters total, so I must also enter 1 or 2 characters that are not part of that set of 8.

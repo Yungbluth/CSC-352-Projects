@@ -1,0 +1,7 @@
+Passphrase for yungbluth_1: AIrpRkPcUKvoPNimjQlDQURX
+
+Attempts to arrive at solution:
+I started by making multiple breakpoints, one at main, one at a compare between %edi and %esi, and one at a movl for %esp
+After making those breakpoints I checked each of the variables I could find at each of these breakpoints
+Doing this, I found out that %edi changes to my input, therefore I was looking for a comparison between my input and other variable
+I found this at one of my breakpoints, with the other variable being %esi.

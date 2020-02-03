@@ -1,0 +1,11 @@
+myshell
+myshell.c
+test123
+test123.txt
+total 36
+drwxrwxr-x  2 yungbluth yungbluth     6 Nov 25 17:39 .
+drwx------ 10 yungbluth yungbluth    10 Nov 24 14:41 ..
+-rwxrwxr-x  1 yungbluth yungbluth 13667 Nov 25 17:39 myshell
+-rw-rw-r--  1 yungbluth yungbluth  4145 Nov 25 17:39 myshell.c
+-rw-rw-r--  1 yungbluth yungbluth     0 Nov 25 14:24 test123
+-rw-rw-r--  1 yungbluth yungbluth    38 Dec  2 16:46 test123.txt
